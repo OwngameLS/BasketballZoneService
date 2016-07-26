@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为Dao接口方法提供SQL语句配置 -->
+<mapper namespace="com.owngame.dao.GameInfosDao">
+
+    <select id="queryById" resultType="GameInfos" parameterType="long">
+        select * from gameinfos where id=#{id}
+    </select>
+    <insert id="insert">
+        insert ignore into gameinfos
+        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
+        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
+         values
+         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
+        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+    </insert>
+</mapper>

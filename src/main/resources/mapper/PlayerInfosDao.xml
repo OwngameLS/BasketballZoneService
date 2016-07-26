@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 为Dao接口方法提供SQL语句配置 -->
-<mapper namespace="com.owngame.dao.PlayerinfosDao">
+<mapper namespace="com.owngame.dao.PlayerInfosDao">
 
-    <select id="queryById" resultType="Playerinfos" parameterType="long">
-        select * from Playerinfos where id=#{id}
+    <select id="queryById" resultType="PlayerInfos" parameterType="long">
+        select * from playerinfos where id=#{id}
     </select>
     <insert id="addPlayerinfos">
         insert ignore into playerinfos
