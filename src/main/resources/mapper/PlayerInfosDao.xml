@@ -7,12 +7,37 @@
     <select id="queryById" resultType="PlayerInfos" parameterType="long">
         select * from playerinfos where id=#{id}
     </select>
-    <insert id="addPlayerinfos">
+    <insert id="insert" parameterType="PlayerInfos">
         insert ignore into playerinfos
-        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
-        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
+        (id, cur_teamid,history_teams,age,birthday,resume,name,
+        sex,jersyno,height,weight,armspan,position,games,mvp,prides,statid,iconimg,grade)
          values
-         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
-        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+         (#{id}, #{cur_teamid},#{history_teams},#{age},#{birthday},#{resume},#{name},
+        #{sex},#{jersyno},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statid},#{iconimg},#{grade})
     </insert>
+    <update id="update" parameterType="PlayerInfos">
+        update playerinfos set
+            cur_teamid=#{cur_teamid},
+            history_teams=#{history_teams},
+            age=#{age},
+            birthday=#{birthday},
+            resume=#{resume},
+            name=#{name},
+            sex=#{sex},
+            jersyno=#{jersyno},
+            height=#{height},
+            weight=#{weight},
+            armspan=#{armspan},
+            position=#{position},
+            games=#{games},
+            mvp=#{mvp},
+            prides=#{prides},
+            statid=#{statid},
+            iconimg=#{iconimg},
+            grade=#{grade}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from playerinfos where id=#{id}
+    </delete>
 </mapper>

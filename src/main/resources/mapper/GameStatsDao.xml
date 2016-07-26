@@ -7,12 +7,49 @@
     <select id="queryById" resultType="GameStats" parameterType="long">
         select * from gamestats where id=#{id}
     </select>
-    <insert id="insert">
+    <insert id="insert" parameterType="GameInfos">
         insert ignore into gamestats
-        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
-        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
-         values
-         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
-        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+            (id, gameid,ismot,fpa, fgm, fg, _3pa, _3pm, _3fg, _2pa, _2pm, _2fg, _1pa, _1pm, _1fg,
+             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1st_score, _2nd_score,
+             _3rd_score, _4th_score, ot_score, total_score)
+        values
+        (#{id}, #{gameid},#{ismot},#{fpa},#{fgm},#{fg},#{_3pa},#{_3pm},#{_3fg},#{_2pa},#{_2pm},#{_2fg},#{_1pa},#{_1pm},#{_1fg},
+        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1st_score},#{_2nd_score},
+        #{_3rd_score},#{_4th_score},#{ot_score},#{total_score})
     </insert>
+    <update id="update" parameterType="GameInfos">
+        update gameinfos set
+        gameid=#{gameid},
+        ismot=#{ismot},
+        fpa=#{fpa},
+        fgm=#{fgm},
+        fg=#{fg},
+        _3pa=#{_3pa},
+        _3pm=#{_3pm},
+        _3fg=#{_3fg},
+        _2pa=#{_2pa},
+        _2pm=#{_2pm},
+        _2fg=#{_2fg},
+        _1pa=#{_1pa},
+        _1pm=#{_1pm},
+        _1fg=#{_1fg},
+        rebs=#{rebs},
+        orebs=#{orebs},
+        blks=#{blks},
+        fouls=#{fouls},
+        ofouls=#{ofouls},
+        stls=#{stls},
+        asts=#{asts},
+        tos=#{tos},
+        _1st_score=#{_1st_score},
+        _2nd_score=#{_2nd_score},
+        _3rd_score=#{_3rd_score},
+        _4th_score=#{_4th_score},
+        ot_score=#{ot_score},
+        total_score=#{total_score}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from gameinfos where id=#{id}
+    </delete>
 </mapper>

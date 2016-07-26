@@ -7,12 +7,31 @@
     <select id="queryById" resultType="GameInfos" parameterType="long">
         select * from gameinfos where id=#{id}
     </select>
-    <insert id="insert">
+    <insert id="insert" parameterType="GameInfos">
         insert ignore into gameinfos
-        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
-        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
-         values
-         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
-        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+        (id, count_type,game_type,union_id,description,gametime,ismot,
+        teamid_home,teamid_guest,team_statid_home,team_statid_guest,player_statids_home,player_statids_guest)
+        values
+        (#{id}, #{count_type},#{game_type},#{union_id},#{description},#{gametime},#{ismot},
+        #{teamid_home},#{teamid_guest},#{team_statid_home},#{team_statid_guest},#{player_statids_home},#{player_statids_guest})
     </insert>
+    <update id="update" parameterType="GameInfos">
+        update gameinfos set
+        count_type=#{count_type},
+        game_type=#{game_type},
+        union_id=#{union_id},
+        description=#{description},
+        gametime=#{gametime},
+        ismot=#{ismot},
+        teamid_home=#{teamid_home},
+        teamid_guest=#{teamid_guest},
+        team_statid_home=#{team_statid_home},
+        team_statid_guest=#{team_statid_guest},
+        player_statids_home=#{player_statids_home},
+        player_statids_guest=#{player_statids_guest}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from gameinfos where id=#{id}
+    </delete>
 </mapper>

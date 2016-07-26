@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-07-25 17:02:18
+Date: 2016-07-26 22:45:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `gameinfos`
+-- Table structure for gameinfos
 -- ----------------------------
 DROP TABLE IF EXISTS `gameinfos`;
 CREATE TABLE `gameinfos` (
@@ -24,7 +24,7 @@ CREATE TABLE `gameinfos` (
   `count_type` char(1) DEFAULT NULL COMMENT '比赛类型（T/S）',
   `game_type` char(1) DEFAULT NULL COMMENT '比赛类型（F/U/C）友谊赛friend，联赛Union，杯赛（Cup）',
   `union_id` bigint(10) DEFAULT NULL COMMENT '比赛所属联赛Id，当为某个联赛（或杯赛）的比赛，填写其Id',
-  `desc` text COMMENT '比赛描述，简介',
+  `description` text COMMENT '比赛描述，简介',
   `gametime` datetime DEFAULT NULL COMMENT '比赛时间',
   `ismot` char(1) DEFAULT NULL COMMENT '是否多个OverTime(y/n)，多个OT则在OT字段会是组合数据统计',
   `teamid_home` bigint(10) DEFAULT NULL COMMENT '参赛主队Id',
@@ -37,11 +37,7 @@ CREATE TABLE `gameinfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of gameinfos
--- ----------------------------
-
--- ----------------------------
--- Table structure for `gamestats`
+-- Table structure for gamestats
 -- ----------------------------
 DROP TABLE IF EXISTS `gamestats`;
 CREATE TABLE `gamestats` (
@@ -78,11 +74,7 @@ CREATE TABLE `gamestats` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of gamestats
--- ----------------------------
-
--- ----------------------------
--- Table structure for `playerinfos`
+-- Table structure for playerinfos
 -- ----------------------------
 DROP TABLE IF EXISTS `playerinfos`;
 CREATE TABLE `playerinfos` (
@@ -109,17 +101,13 @@ CREATE TABLE `playerinfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of playerinfos
--- ----------------------------
-
--- ----------------------------
--- Table structure for `teaminfos`
+-- Table structure for teaminfos
 -- ----------------------------
 DROP TABLE IF EXISTS `teaminfos`;
 CREATE TABLE `teaminfos` (
   `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '球队的唯一标识',
   `name` varchar(20) DEFAULT NULL COMMENT '球队名称',
-  `desc` text COMMENT '球队简述',
+  `description` text COMMENT '球队简述',
   `prides` text COMMENT '球队荣誉',
   `gamecount` int(11) DEFAULT NULL COMMENT '比赛数量',
   `wincount` int(11) DEFAULT NULL COMMENT '获胜次数',
@@ -130,11 +118,7 @@ CREATE TABLE `teaminfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of teaminfos
--- ----------------------------
-
--- ----------------------------
--- Table structure for `totalstats`
+-- Table structure for totalstats
 -- ----------------------------
 DROP TABLE IF EXISTS `totalstats`;
 CREATE TABLE `totalstats` (
@@ -162,7 +146,3 @@ CREATE TABLE `totalstats` (
   `totalscore` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of totalstats
--- ----------------------------

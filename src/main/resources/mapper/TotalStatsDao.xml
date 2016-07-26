@@ -7,12 +7,40 @@
     <select id="queryById" resultType="TotalStats" parameterType="long">
         select * from totalstats where id=#{id}
     </select>
-    <insert id="insert">
+    <insert id="insert" parameterType="TotalStats">
         insert ignore into totalstats
-        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
-        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
-         values
-         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
-        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+        (id, fpa, fgm, fg, _3pa, _3pm, _3fg, _2pa, _2pm, _2fg, _1pa, _1pm, _1fg,
+        rebs, orebs, blks, fouls, ofouls, stls, asts, tos, total_score)
+        values
+        (#{id},#{fpa},#{fgm},#{fg},#{_3pa},#{_3pm},#{_3fg},#{_2pa},#{_2pm},#{_2fg},#{_1pa},#{_1pm},#{_1fg},
+        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{total_score})
     </insert>
+    <update id="update" parameterType="GameInfos">
+        update totalstats set
+        fpa=#{fpa},
+        fgm=#{fgm},
+        fg=#{fg},
+        _3pa=#{_3pa},
+        _3pm=#{_3pm},
+        _3fg=#{_3fg},
+        _2pa=#{_2pa},
+        _2pm=#{_2pm},
+        _2fg=#{_2fg},
+        _1pa=#{_1pa},
+        _1pm=#{_1pm},
+        _1fg=#{_1fg},
+        rebs=#{rebs},
+        orebs=#{orebs},
+        blks=#{blks},
+        fouls=#{fouls},
+        ofouls=#{ofouls},
+        stls=#{stls},
+        asts=#{asts},
+        tos=#{tos},
+        total_score=#{total_score}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from totalstats where id=#{id}
+    </delete>
 </mapper>

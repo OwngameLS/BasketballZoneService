@@ -7,12 +7,27 @@
     <select id="queryById" resultType="TeamInfos" parameterType="long">
         select * from teaminfos where id=#{id}
     </select>
-    <insert id="insert">
+    <insert id="insert" parameterType="TeamInfos">
         insert ignore into teaminfos
-        (Id, CurTeamId,HistoryTeams,Age,Birthday,Resume,Name,
-        Sex,JersyNo,Height,Weight,Armspan,Position,Games,MVP,Prides,StatId,IconImg,Grade)
-         values
-         (#{id}, #{curTeamId},#{historyTeams},#{age},#{birthday},#{resume},#{name},
-        #{sex},#{jersyNo},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statId},#{iconImg},#{grade})
+        (id,name,descrition,prides,gamecount,wincount,statid,ptid,iconimg)
+        values
+        (#{id}, #{name},#{descrition},#{prides},#{gamecount},#{wincount},#{statid},
+        #{ptid},#{iconimg})
     </insert>
+    <update id="update" parameterType="PlayerInfos">
+        update teaminfos set
+        id=#{id},
+        name=#{name},
+        descrition=#{descrition},
+        prides=#{prides},
+        gamecount=#{gamecount},
+        wincount=#{wincount},
+        statid=#{statid},
+        ptid=#{ptid},
+        iconimg=#{iconimg}
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from teaminfos where id=#{id}
+    </delete>
 </mapper>
