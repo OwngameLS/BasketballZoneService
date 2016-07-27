@@ -25,7 +25,7 @@ public class PlayerinfosDaoTest {
     }
 
     @Test
-    public void addPlayerinfos() throws Exception {
+    public void update() throws Exception {
 
     }
 

@@ -15,7 +15,7 @@ public interface PlayerInfosDao {
 
     /**
      * 插入球员信息
-     * @param playerinfos
+     * @param playerInfos
      * @return
      */
     int insert(PlayerInfos playerInfos);
