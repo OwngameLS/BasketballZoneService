@@ -8,7 +8,7 @@ public class TotalStats {
     private long id;
     private int fga;
     private int fgm;
-    private int fg;
+    private float fg;
     private int _3pa;
     private int _3pm;
     private float _3fg;
@@ -26,7 +26,7 @@ public class TotalStats {
     private int stls;
     private int asts;
     private int tos;
-    private int total_score;
+    private int totalScore;
 
     public long getId() {
         return id;
@@ -52,11 +52,11 @@ public class TotalStats {
         this.fgm = fgm;
     }
 
-    public int getFg() {
+    public float getFg() {
         return fg;
     }
 
-    public void setFg(int fg) {
+    public void setFg(float fg) {
         this.fg = fg;
     }
 
@@ -196,11 +196,39 @@ public class TotalStats {
         this.tos = tos;
     }
 
-    public int getTotal_score() {
-        return total_score;
+    public int getTotalScore() {
+        return totalScore;
     }
 
-    public void setTotal_score(int total_score) {
-        this.total_score = total_score;
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    @Override
+    public String toString() {
+        return "TotalStats{" +
+                "id=" + id +
+                ", fga=" + fga +
+                ", fgm=" + fgm +
+                ", fg=" + fg +
+                ", _3pa=" + _3pa +
+                ", _3pm=" + _3pm +
+                ", _3fg=" + _3fg +
+                ", _2pa=" + _2pa +
+                ", _2pm=" + _2pm +
+                ", _2fg=" + _2fg +
+                ", _1pa=" + _1pa +
+                ", _1pm=" + _1pm +
+                ", _1fg=" + _1fg +
+                ", rebs=" + rebs +
+                ", orebs=" + orebs +
+                ", blks=" + blks +
+                ", fouls=" + fouls +
+                ", ofouls=" + ofouls +
+                ", stls=" + stls +
+                ", asts=" + asts +
+                ", tos=" + tos +
+                ", totalScore=" + totalScore +
+                '}';
     }
 }
