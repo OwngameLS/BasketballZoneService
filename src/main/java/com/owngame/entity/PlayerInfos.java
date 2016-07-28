@@ -7,8 +7,8 @@ import java.sql.Date;
  */
 public class PlayerInfos {
     private long id;
-    private long cur_teamid;
-    private String history_teams;
+    private long curTeamid;
+    private String historyTeams;
     private int age;
     private Date birthday;
     private String resume;
@@ -34,20 +34,20 @@ public class PlayerInfos {
         this.id = id;
     }
 
-    public long getCur_teamid() {
-        return cur_teamid;
+    public long getCurTeamid() {
+        return curTeamid;
     }
 
-    public void setCur_teamid(long cur_teamid) {
-        this.cur_teamid = cur_teamid;
+    public void setCurTeamid(long curTeamid) {
+        this.curTeamid = curTeamid;
     }
 
-    public String getHistory_teams() {
-        return history_teams;
+    public String getHistoryTeams() {
+        return historyTeams;
     }
 
-    public void setHistory_teams(String history_teams) {
-        this.history_teams = history_teams;
+    public void setHistoryTeams(String historyTeams) {
+        this.historyTeams = historyTeams;
     }
 
     public int getAge() {

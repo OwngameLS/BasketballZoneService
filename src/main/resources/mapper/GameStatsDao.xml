@@ -10,11 +10,11 @@
     <insert id="insert" parameterType="GameInfos">
         insert ignore into gamestats
             (id, gameid,ismot,fpa, fgm, fg, _3pa, _3pm, _3fg, _2pa, _2pm, _2fg, _1pa, _1pm, _1fg,
-             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1st_score, _2nd_score,
+             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1stScore, _2nd_score,
              _3rd_score, _4th_score, ot_score, total_score)
         values
         (#{id}, #{gameid},#{ismot},#{fpa},#{fgm},#{fg},#{_3pa},#{_3pm},#{_3fg},#{_2pa},#{_2pm},#{_2fg},#{_1pa},#{_1pm},#{_1fg},
-        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1st_score},#{_2nd_score},
+        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1stScore},#{_2nd_score},
         #{_3rd_score},#{_4th_score},#{ot_score},#{total_score})
     </insert>
     <update id="update" parameterType="GameInfos">
@@ -41,7 +41,7 @@
         stls=#{stls},
         asts=#{asts},
         tos=#{tos},
-        _1st_score=#{_1st_score},
+        _1stScore=#{_1stScore},
         _2nd_score=#{_2nd_score},
         _3rd_score=#{_3rd_score},
         _4th_score=#{_4th_score},

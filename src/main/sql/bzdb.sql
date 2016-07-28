@@ -64,7 +64,7 @@ CREATE TABLE `gamestats` (
   `stls` smallint(6) DEFAULT NULL COMMENT '抢断',
   `asts` smallint(6) DEFAULT NULL COMMENT '助攻',
   `tos` smallint(6) DEFAULT NULL COMMENT '失误',
-  `_1st_score` smallint(6) DEFAULT NULL COMMENT '第1节得分',
+  `_1stScore` smallint(6) DEFAULT NULL COMMENT '第1节得分',
   `_2nd_score` smallint(6) DEFAULT NULL COMMENT '第2节得分',
   `_3rd_score` smallint(6) DEFAULT NULL COMMENT '第3节得分',
   `_4th_score` smallint(6) DEFAULT NULL COMMENT '第4节得分',
@@ -79,8 +79,8 @@ CREATE TABLE `gamestats` (
 DROP TABLE IF EXISTS `playerinfos`;
 CREATE TABLE `playerinfos` (
   `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '球员的唯一标识',
-  `cur_teamid` bigint(10) DEFAULT NULL COMMENT '当前所在球队标识（允许一人效力多支球队）',
-  `history_teams` text COMMENT '历史效力球队标识',
+  `curTeamid` bigint(10) DEFAULT NULL COMMENT '当前所在球队标识（允许一人效力多支球队）',
+  `historyTeams` text COMMENT '历史效力球队标识',
   `age` smallint(6) DEFAULT NULL COMMENT '年龄',
   `birthday` datetime DEFAULT NULL COMMENT '生日',
   `resume` text COMMENT '简历',

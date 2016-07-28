@@ -9,16 +9,16 @@
     </select>
     <insert id="insert" parameterType="PlayerInfos">
         insert ignore into playerinfos
-        (id, cur_teamid,history_teams,age,birthday,resume,name,
+        (id, curTeamid,historyTeams,age,birthday,resume,name,
         sex,jersyno,height,weight,armspan,position,games,mvp,prides,statid,iconimg,grade)
          values
-         (#{id}, #{cur_teamid},#{history_teams},#{age},#{birthday},#{resume},#{name},
+         (#{id}, #{curTeamid},#{historyTeams},#{age},#{birthday},#{resume},#{name},
         #{sex},#{jersyno},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statid},#{iconimg},#{grade})
     </insert>
     <update id="update" parameterType="PlayerInfos">
         update playerinfos set
-            cur_teamid=#{cur_teamid},
-            history_teams=#{history_teams},
+            curTeamid=#{curTeamid},
+            historyTeams=#{historyTeams},
             age=#{age},
             birthday=#{birthday},
             resume=#{resume},

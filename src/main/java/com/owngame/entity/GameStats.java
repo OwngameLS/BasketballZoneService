@@ -29,12 +29,12 @@ public class GameStats {
     private int stls;
     private int asts;
     private int tos;
-    private int _1st_score;
-    private int _2nd_score;
-    private int _3rd_score;
-    private int _4th_score;
-    private int ot_score;
-    private int total_score;
+    private int _1stScore;
+    private int _2ndScore;
+    private int _3rdScore;
+    private int _4thScore;
+    private int otScore;
+    private int totalScore;
 
     public long getId() {
         return id;
@@ -220,51 +220,51 @@ public class GameStats {
         this.tos = tos;
     }
 
-    public int get_1st_score() {
-        return _1st_score;
+    public int get_1stScore() {
+        return _1stScore;
     }
 
-    public void set_1st_score(int _1st_score) {
-        this._1st_score = _1st_score;
+    public void set_1stScore(int _1stScore) {
+        this._1stScore = _1stScore;
     }
 
-    public int get_2nd_score() {
-        return _2nd_score;
+    public int get_2ndScore() {
+        return _2ndScore;
     }
 
-    public void set_2nd_score(int _2nd_score) {
-        this._2nd_score = _2nd_score;
+    public void set_2ndScore(int _2ndScore) {
+        this._2ndScore = _2ndScore;
     }
 
-    public int get_3rd_score() {
-        return _3rd_score;
+    public int get_3rdScore() {
+        return _3rdScore;
     }
 
-    public void set_3rd_score(int _3rd_score) {
-        this._3rd_score = _3rd_score;
+    public void set_3rdScore(int _3rdScore) {
+        this._3rdScore = _3rdScore;
     }
 
-    public int get_4th_score() {
-        return _4th_score;
+    public int get_4thScore() {
+        return _4thScore;
     }
 
-    public void set_4th_score(int _4th_score) {
-        this._4th_score = _4th_score;
+    public void set_4thScore(int _4thScore) {
+        this._4thScore = _4thScore;
     }
 
-    public int getOt_score() {
-        return ot_score;
+    public int getOtScore() {
+        return otScore;
     }
 
-    public void setOt_score(int ot_score) {
-        this.ot_score = ot_score;
+    public void setOtScore(int otScore) {
+        this.otScore = otScore;
     }
 
-    public int getTotal_score() {
-        return total_score;
+    public int getTotalScore() {
+        return totalScore;
     }
 
-    public void setTotal_score(int total_score) {
-        this.total_score = total_score;
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
     }
 }

@@ -11,11 +11,11 @@ public class GameInfos {
     private char countType;
     private char gameType;
     private long unionId;
-    private String desc;
+    private String description;
     private Date gametime;
-    private char isMOT;
-    private long teamIdHome;
-    private long teamIdGuest;
+    private char ismot;
+    private long teamidHome;
+    private long teamidGuest;
     private String playerStatIdsHome;
     private String playerStatIdsGuest;
 
@@ -51,12 +51,12 @@ public class GameInfos {
         this.unionId = unionId;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getGametime() {
@@ -67,28 +67,28 @@ public class GameInfos {
         this.gametime = gametime;
     }
 
-    public char getIsMOT() {
-        return isMOT;
+    public char getIsmot() {
+        return ismot;
     }
 
-    public void setIsMOT(char isMOT) {
-        this.isMOT = isMOT;
+    public void setIsmot(char ismot) {
+        this.ismot = ismot;
     }
 
-    public long getTeamIdHome() {
-        return teamIdHome;
+    public long getTeamidHome() {
+        return teamidHome;
     }
 
-    public void setTeamIdHome(long teamIdHome) {
-        this.teamIdHome = teamIdHome;
+    public void setTeamidHome(long teamidHome) {
+        this.teamidHome = teamidHome;
     }
 
-    public long getTeamIdGuest() {
-        return teamIdGuest;
+    public long getTeamidGuest() {
+        return teamidGuest;
     }
 
-    public void setTeamIdGuest(long teamIdGuest) {
-        this.teamIdGuest = teamIdGuest;
+    public void setTeamidGuest(long teamidGuest) {
+        this.teamidGuest = teamidGuest;
     }
 
     public String getPlayerStatIdsHome() {
