@@ -1,4 +1,7 @@
 篮球空间网页端和服务端 160726 23:00
 项目采用springMVC + spring + myBatis
+
+老师的项目共享：
+https://github.com/geekyijun/seckill
 1、正在实现数据库实体的对应
 2、准备先实现一两个Service
