@@ -1,7 +1,12 @@
-篮球空间网页端和服务端 160726 23:00
+篮球空间网页端和服务端 160729 23:00
 项目采用springMVC + spring + myBatis
 
 老师的项目共享：
 https://github.com/geekyijun/seckill
 1、正在实现数据库实体的对应
 2、准备先实现一两个Service 目前已经实现了一个Service，大致了解了相关配置和测试流程
+3、测试通过了一个Service，对mapper的配置和编写有了比较清晰的认识：
+    如id=#{id},前面为数据库字段名，后为javaEntity的属性名称
+    <insert id="insert" parameterType="TotalStats" keyProperty="id"> insert操作中添加了keyProperty，并且在总的配置文件中使用了useGeneratedKeys，就可以在插入后返回主键值到javaEntity中的主键属性中。
+
+    
