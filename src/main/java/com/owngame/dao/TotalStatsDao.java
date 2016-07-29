@@ -2,6 +2,7 @@ package com.owngame.dao;
 
 import com.owngame.entity.TotalStats;
 
+
 /**
  * Created by Administrator on 2016-7-26.
  */

@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-07-28 21:49:10
+Date: 2016-07-29 09:45:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for gameinfos
+-- Table structure for `gameinfos`
 -- ----------------------------
 DROP TABLE IF EXISTS `gameinfos`;
 CREATE TABLE `gameinfos` (
@@ -37,7 +37,11 @@ CREATE TABLE `gameinfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for gamestats
+-- Records of gameinfos
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `gamestats`
 -- ----------------------------
 DROP TABLE IF EXISTS `gamestats`;
 CREATE TABLE `gamestats` (
@@ -47,15 +51,15 @@ CREATE TABLE `gamestats` (
   `fpa` smallint(6) DEFAULT '0' COMMENT '出手次数',
   `fgm` smallint(6) DEFAULT '0' COMMENT '命中次数',
   `fg` float(4,2) DEFAULT '0.00' COMMENT '命中率',
-  `_3pa` smallint(6) DEFAULT '0' COMMENT '3分球出手次数',
-  `_3pm` smallint(6) DEFAULT '0' COMMENT '3分球命中次数',
-  `_3fg` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
-  `_2pa` smallint(6) DEFAULT '0' COMMENT '2分球出手次数',
-  `_2pm` smallint(6) DEFAULT '0' COMMENT '2分球命中次数',
-  `_2fg` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
-  `_1pa` smallint(6) DEFAULT '0' COMMENT '1分球出手次数',
-  `_1pm` smallint(6) DEFAULT '0' COMMENT '1分球命中次数',
-  `_1fg` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
+  `pa3` smallint(6) DEFAULT '0' COMMENT '3分球出手次数',
+  `pm3` smallint(6) DEFAULT '0' COMMENT '3分球命中次数',
+  `fg3` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
+  `pa2` smallint(6) DEFAULT '0' COMMENT '2分球出手次数',
+  `pm2` smallint(6) DEFAULT '0' COMMENT '2分球命中次数',
+  `fg2` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
+  `pa1` smallint(6) DEFAULT '0' COMMENT '1分球出手次数',
+  `pm1` smallint(6) DEFAULT '0' COMMENT '1分球命中次数',
+  `fg1` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
   `rebs` smallint(6) DEFAULT '0' COMMENT '篮板球',
   `orebs` smallint(6) DEFAULT '0' COMMENT '进攻篮板',
   `blks` smallint(6) DEFAULT '0' COMMENT '盖帽',
@@ -64,17 +68,22 @@ CREATE TABLE `gamestats` (
   `stls` smallint(6) DEFAULT '0' COMMENT '抢断',
   `asts` smallint(6) DEFAULT '0' COMMENT '助攻',
   `tos` smallint(6) DEFAULT '0' COMMENT '失误',
-  `_1st_score` smallint(6) DEFAULT '0' COMMENT '第1节得分',
-  `_2nd_score` smallint(6) DEFAULT '0' COMMENT '第2节得分',
-  `_3rd_score` smallint(6) DEFAULT '0' COMMENT '第3节得分',
-  `_4th_score` smallint(6) DEFAULT '0' COMMENT '第4节得分',
-  `ot_score` smallint(6) DEFAULT '0' COMMENT '加时赛得分',
+  `score1st` smallint(6) DEFAULT '0' COMMENT '第1节得分',
+  `score2nd` smallint(6) DEFAULT '0' COMMENT '第2节得分',
+  `score3rd` smallint(6) DEFAULT '0' COMMENT '第3节得分',
+  `score4th` smallint(6) DEFAULT '0' COMMENT '第4节得分',
+  `score_ot` smallint(6) DEFAULT '0' COMMENT '加时赛得分',
   `total_score` smallint(6) DEFAULT '0' COMMENT '总得分',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for playerinfos
+-- Records of gamestats
+-- ----------------------------
+INSERT INTO `gamestats` VALUES ('1', '1', 'N', '15', '10', '66.67', '5', '2', '40.00', '5', '4', '80.00', '5', '4', '80.00', '5', '1', '3', '4', '1', '1', '5', '0', '5', '5', '4', '4', '0', '18');
+
+-- ----------------------------
+-- Table structure for `playerinfos`
 -- ----------------------------
 DROP TABLE IF EXISTS `playerinfos`;
 CREATE TABLE `playerinfos` (
@@ -101,7 +110,11 @@ CREATE TABLE `playerinfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for teaminfos
+-- Records of playerinfos
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `teaminfos`
 -- ----------------------------
 DROP TABLE IF EXISTS `teaminfos`;
 CREATE TABLE `teaminfos` (
@@ -118,7 +131,11 @@ CREATE TABLE `teaminfos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for totalstats
+-- Records of teaminfos
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `totalstats`
 -- ----------------------------
 DROP TABLE IF EXISTS `totalstats`;
 CREATE TABLE `totalstats` (
@@ -126,15 +143,15 @@ CREATE TABLE `totalstats` (
   `fga` bigint(11) DEFAULT '0' COMMENT '总出手次数',
   `fgm` bigint(11) DEFAULT '0' COMMENT '总命中次数',
   `fg` float(4,2) DEFAULT '0.00' COMMENT '总命中率',
-  `_3pa` bigint(11) DEFAULT '0' COMMENT '总3分球出手次数',
-  `_3pm` bigint(11) DEFAULT '0' COMMENT '总3分球命中次数',
-  `_3fg` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
-  `_2pa` bigint(11) DEFAULT '0' COMMENT '总2分球出手次数',
-  `_2pm` bigint(11) DEFAULT '0' COMMENT '总2分球命中次数',
-  `_2fg` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
-  `_1pa` bigint(11) DEFAULT '0' COMMENT '总1分球出手次数',
-  `_1pm` bigint(11) DEFAULT '0' COMMENT '总1分球命中次数',
-  `_1fg` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
+  `pa3` bigint(11) DEFAULT '0' COMMENT '总3分球出手次数',
+  `pm3` bigint(11) DEFAULT '0' COMMENT '总3分球命中次数',
+  `fg3` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
+  `pa2` bigint(11) DEFAULT '0' COMMENT '总2分球出手次数',
+  `pm2` bigint(11) DEFAULT '0' COMMENT '总2分球命中次数',
+  `fg2` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
+  `pa1` bigint(11) DEFAULT '0' COMMENT '总1分球出手次数',
+  `pm1` bigint(11) DEFAULT '0' COMMENT '总1分球命中次数',
+  `fg1` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
   `rebs` bigint(20) DEFAULT '0' COMMENT '篮板球',
   `orebs` bigint(20) DEFAULT '0' COMMENT '进攻篮板',
   `blks` bigint(20) DEFAULT '0' COMMENT '盖帽',
@@ -143,6 +160,11 @@ CREATE TABLE `totalstats` (
   `stls` bigint(20) DEFAULT '0' COMMENT '抢断',
   `asts` bigint(20) DEFAULT '0' COMMENT '助攻',
   `tos` bigint(20) DEFAULT '0' COMMENT '失误',
-  `totalscore` bigint(20) DEFAULT '0',
+  `total_score` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of totalstats
+-- ----------------------------
+INSERT INTO `totalstats` VALUES ('1', '5', '3', '60.00', '5', '3', '60.00', '0', '0', '0.00', '0', '0', '0.00', '10', '8', '2', '3', '1', '2', '5', '0', '15');

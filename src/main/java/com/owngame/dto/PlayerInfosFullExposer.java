@@ -29,4 +29,12 @@ public class PlayerInfosFullExposer {
     public void setPlayerCareerStats(TotalStats playerCareerStats) {
         this.playerCareerStats = playerCareerStats;
     }
+
+    @Override
+    public String toString() {
+        return "PlayerInfosFullExposer{" +
+                "playerBasicInfos=" + playerBasicInfos.toString() +
+                ", playerCareerStats=" + playerCareerStats.toString() +
+                '}';
+    }
 }

@@ -10,6 +10,6 @@
         <!-- 使用列别名来替换替换列名 默认为true -->
         <setting name="useColumnLabel" value="true" />
         <!-- 开启驼峰命名转换 -->
-        <setting name="mapUnderscoreToCamelCase" value="ture" />
+        <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
 </configuration>

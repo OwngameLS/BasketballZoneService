@@ -7,28 +7,26 @@
     <select id="queryById" resultType="TotalStats" parameterType="long">
         select * from totalstats where id=#{id}
     </select>
-    <insert id="insert" parameterType="TotalStats">
+    <insert id="insert" parameterType="TotalStats" useGeneratedKeys="true" keyProperty="id">
         insert ignore into totalstats
-        (id, fpa, fgm, fg, _3pa, _3pm, _3fg, _2pa, _2pm, _2fg, _1pa, _1pm, _1fg,
-        rebs, orebs, blks, fouls, ofouls, stls, asts, tos, total_score)
+        (id, fga, fgm, fg, pa3, pm3, fg3, pa2, pm2, fg2, pa1, pm1, fg1, rebs, orebs, blks, fouls, ofouls, stls, asts, tos, total_score)
         values
-        (#{id},#{fpa},#{fgm},#{fg},#{_3pa},#{_3pm},#{_3fg},#{_2pa},#{_2pm},#{_2fg},#{_1pa},#{_1pm},#{_1fg},
-        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{total_score})
+        (#{id},#{fga},#{fgm},#{fg},#{pa3},#{pm3},#{fg3},#{pa2},#{pm2},#{fg2},#{pa1},#{pm1},#{fg1},#{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{totalScore})
     </insert>
-    <update id="update" parameterType="GameInfos">
+    <update id="update" parameterType="TotalStats">
         update totalstats set
-        fpa=#{fpa},
+        fga=#{fga},
         fgm=#{fgm},
         fg=#{fg},
-        _3pa=#{_3pa},
-        _3pm=#{_3pm},
-        _3fg=#{_3fg},
-        _2pa=#{_2pa},
-        _2pm=#{_2pm},
-        _2fg=#{_2fg},
-        _1pa=#{_1pa},
-        _1pm=#{_1pm},
-        _1fg=#{_1fg},
+        pa3=#{pa3},
+        pm3=#{pm3},
+        fg3=#{fg3},
+        pa2=#{pa2},
+        pm2=#{pm2},
+        fg2=#{fg2},
+        pa1=#{pa1},
+        pm1=#{pm1},
+        fg1=#{fg1},
         rebs=#{rebs},
         orebs=#{orebs},
         blks=#{blks},
@@ -37,7 +35,7 @@
         stls=#{stls},
         asts=#{asts},
         tos=#{tos},
-        total_score=#{total_score}
+        total_score=#{totalScore}
         where id=#{id}
     </update>
     <delete id="delete" parameterType="int">

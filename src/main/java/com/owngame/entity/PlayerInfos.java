@@ -177,4 +177,29 @@ public class PlayerInfos {
     public void setGrade(String grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String toString() {
+        return "PlayerInfos{" +
+                "id=" + id +
+                ", curTeamid=" + curTeamid +
+                ", historyTeams='" + historyTeams + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", resume='" + resume + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", jersyno='" + jersyno + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", armspan=" + armspan +
+                ", position='" + position + '\'' +
+                ", games=" + games +
+                ", mvp=" + mvp +
+                ", prides='" + prides + '\'' +
+                ", statid=" + statid +
+                ", iconimg='" + iconimg + '\'' +
+                ", grade='" + grade + '\'' +
+                '}';
+    }
 }

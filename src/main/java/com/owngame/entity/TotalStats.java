@@ -9,15 +9,15 @@ public class TotalStats {
     private int fga;
     private int fgm;
     private float fg;
-    private int _3pa;
-    private int _3pm;
-    private float _3fg;
-    private int _2pa;
-    private int _2pm;
-    private float _2fg;
-    private int _1pa;
-    private int _1pm;
-    private float _1fg;
+    private int pa3;
+    private int pm3;
+    private float fg3;
+    private int pa2;
+    private int pm2;
+    private float fg2;
+    private int pa1;
+    private int pm1;
+    private float fg1;
     private int rebs;
     private int orebs;
     private int blks;
@@ -60,76 +60,76 @@ public class TotalStats {
         this.fg = fg;
     }
 
-    public int get_3pa() {
-        return _3pa;
+    public int getPa3() {
+        return pa3;
     }
 
-    public void set_3pa(int _3pa) {
-        this._3pa = _3pa;
+    public void setPa3(int pa3) {
+        this.pa3 = pa3;
     }
 
-    public int get_3pm() {
-        return _3pm;
+    public int getPm3() {
+        return pm3;
     }
 
-    public void set_3pm(int _3pm) {
-        this._3pm = _3pm;
+    public void setPm3(int pm3) {
+        this.pm3 = pm3;
     }
 
-    public float get_3fg() {
-        return _3fg;
+    public float getFg3() {
+        return fg3;
     }
 
-    public void set_3fg(float _3fg) {
-        this._3fg = _3fg;
+    public void setFg3(float fg3) {
+        this.fg3 = fg3;
     }
 
-    public int get_2pa() {
-        return _2pa;
+    public int getPa2() {
+        return pa2;
     }
 
-    public void set_2pa(int _2pa) {
-        this._2pa = _2pa;
+    public void setPa2(int pa2) {
+        this.pa2 = pa2;
     }
 
-    public int get_2pm() {
-        return _2pm;
+    public int getPm2() {
+        return pm2;
     }
 
-    public void set_2pm(int _2pm) {
-        this._2pm = _2pm;
+    public void setPm2(int pm2) {
+        this.pm2 = pm2;
     }
 
-    public float get_2fg() {
-        return _2fg;
+    public float getFg2() {
+        return fg2;
     }
 
-    public void set_2fg(float _2fg) {
-        this._2fg = _2fg;
+    public void setFg2(float fg2) {
+        this.fg2 = fg2;
     }
 
-    public int get_1pa() {
-        return _1pa;
+    public int getPa1() {
+        return pa1;
     }
 
-    public void set_1pa(int _1pa) {
-        this._1pa = _1pa;
+    public void setPa1(int pa1) {
+        this.pa1 = pa1;
     }
 
-    public int get_1pm() {
-        return _1pm;
+    public int getPm1() {
+        return pm1;
     }
 
-    public void set_1pm(int _1pm) {
-        this._1pm = _1pm;
+    public void setPm1(int pm1) {
+        this.pm1 = pm1;
     }
 
-    public float get_1fg() {
-        return _1fg;
+    public float getFg1() {
+        return fg1;
     }
 
-    public void set_1fg(float _1fg) {
-        this._1fg = _1fg;
+    public void setFg1(float fg1) {
+        this.fg1 = fg1;
     }
 
     public int getRebs() {
@@ -211,15 +211,15 @@ public class TotalStats {
                 ", fga=" + fga +
                 ", fgm=" + fgm +
                 ", fg=" + fg +
-                ", _3pa=" + _3pa +
-                ", _3pm=" + _3pm +
-                ", _3fg=" + _3fg +
-                ", _2pa=" + _2pa +
-                ", _2pm=" + _2pm +
-                ", _2fg=" + _2fg +
-                ", _1pa=" + _1pa +
-                ", _1pm=" + _1pm +
-                ", _1fg=" + _1fg +
+                ", pa3=" + pa3 +
+                ", pm3=" + pm3 +
+                ", fg3=" + fg3 +
+                ", pa2=" + pa2 +
+                ", pm2=" + pm2 +
+                ", fg2=" + fg2 +
+                ", pa1=" + pa1 +
+                ", pm1=" + pm1 +
+                ", fg1=" + fg1 +
                 ", rebs=" + rebs +
                 ", orebs=" + orebs +
                 ", blks=" + blks +

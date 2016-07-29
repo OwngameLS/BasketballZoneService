@@ -7,31 +7,31 @@
     <select id="queryById" resultType="GameStats" parameterType="long">
         select * from gamestats where id=#{id}
     </select>
-    <insert id="insert" parameterType="GameInfos">
+    <insert id="insert" parameterType="GameStats">
         insert ignore into gamestats
-            (id, gameid,ismot,fpa, fgm, fg, _3pa, _3pm, _3fg, _2pa, _2pm, _2fg, _1pa, _1pm, _1fg,
-             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1stScore, _2nd_score,
-             _3rd_score, _4th_score, ot_score, total_score)
+            (id, gameid,ismot,fga, fgm, fg, pa3, pm3, _3fg, pa2, pm2, _2fg, pa1, pm1, _1fg,
+             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1stScore, score2nd,
+             score3rd, score4th, ot_score, total_score)
         values
-        (#{id}, #{gameid},#{ismot},#{fpa},#{fgm},#{fg},#{_3pa},#{_3pm},#{_3fg},#{_2pa},#{_2pm},#{_2fg},#{_1pa},#{_1pm},#{_1fg},
-        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1stScore},#{_2nd_score},
-        #{_3rd_score},#{_4th_score},#{ot_score},#{total_score})
+        (#{id}, #{gameid},#{ismot},#{fga},#{fgm},#{fg},#{pa3},#{pm3},#{_3fg},#{pa2},#{pm2},#{_2fg},#{pa1},#{pm1},#{_1fg},
+        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1stScore},#{score2nd},
+        #{score3rd},#{score4th},#{ot_score},#{total_score})
     </insert>
-    <update id="update" parameterType="GameInfos">
+    <update id="update" parameterType="GameStats">
         update gameinfos set
         gameid=#{gameid},
         ismot=#{ismot},
-        fpa=#{fpa},
+        fga=#{fga},
         fgm=#{fgm},
         fg=#{fg},
-        _3pa=#{_3pa},
-        _3pm=#{_3pm},
+        pa3=#{pa3},
+        pm3=#{pm3},
         _3fg=#{_3fg},
-        _2pa=#{_2pa},
-        _2pm=#{_2pm},
+        pa2=#{pa2},
+        pm2=#{pm2},
         _2fg=#{_2fg},
-        _1pa=#{_1pa},
-        _1pm=#{_1pm},
+        pa1=#{pa1},
+        pm1=#{pm1},
         _1fg=#{_1fg},
         rebs=#{rebs},
         orebs=#{orebs},
@@ -42,9 +42,9 @@
         asts=#{asts},
         tos=#{tos},
         _1stScore=#{_1stScore},
-        _2nd_score=#{_2nd_score},
-        _3rd_score=#{_3rd_score},
-        _4th_score=#{_4th_score},
+        score2nd=#{score2nd},
+        score3rd=#{score3rd},
+        score4th=#{score4th},
         ot_score=#{ot_score},
         total_score=#{total_score}
         where id=#{id}

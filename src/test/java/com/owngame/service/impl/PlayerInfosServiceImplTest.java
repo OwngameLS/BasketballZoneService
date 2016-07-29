@@ -1,5 +1,8 @@
 package com.owngame.service.impl;
 
+import com.owngame.dao.GameStatsDao;
+import com.owngame.dto.PlayerInfosFullExposer;
+import com.owngame.entity.GameStats;
 import com.owngame.entity.TotalStats;
 import com.owngame.service.PlayerInfosService;
 import org.junit.Test;
@@ -24,12 +27,16 @@ import static org.junit.Assert.*;
     "classpath:spring/spring-service.xml"})
 public class PlayerInfosServiceImplTest {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Resource
+    GameStatsDao gameStatsDao;
 
     @Autowired
     PlayerInfosService playerInfosService;
 
     @Test
     public void getPlayerInfosFullById() throws Exception {
+        PlayerInfosFullExposer playerInfosFullExposer = playerInfosService.getPlayerInfosFullById(1);
+        logger.info("playerInfosFullExposer={}", playerInfosFullExposer);
 
     }
 
@@ -40,12 +47,15 @@ public class PlayerInfosServiceImplTest {
     }
 
     @Test
-    public void setPlayerTotalStats() throws Exception {
-
+    public void setPlayerTotalStatsWithGameStats() throws Exception {
+        GameStats gameStats = gameStatsDao.queryById(1);
+        gameStats.setBlks(1);
+        logger.info("gameStats={}", gameStats);
+        playerInfosService.setPlayerTotalStatsWithGameStats(-1,gameStats);
     }
 
     @Test
-    public void setPlayerTotalStats1() throws Exception {
+    public void setPlayerTotalStatsWithGameStats1() throws Exception {
 
     }
 

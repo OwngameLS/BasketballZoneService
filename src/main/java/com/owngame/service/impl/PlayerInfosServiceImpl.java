@@ -56,16 +56,18 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
      * @param gameStats 某一场比赛的数据
      * @return 更新结果
      */
-    public int setPlayerTotalStats(long totalStatid, GameStats gameStats){
+    public int setPlayerTotalStatsWithGameStats(long totalStatid, GameStats gameStats){
         // 1.先读取totalStats
         TotalStats totalStats = totalStatsDao.queryById(totalStatid);
         if(totalStats == null){
             // 第一次创建该生涯数据，先向数据库插入一条记录
             totalStats = new TotalStats();
+            System.out.println("insert new totalStats.");
             long id = totalStatsDao.insert(totalStats);
+            System.out.println("id:" + id);
             totalStats.setId(id);
         }
-        totalStats = updateTotalStats(totalStats, gameStats);
+        totalStats = updateTotalStatsWithGameStats(totalStats, gameStats);
         // 2.对应更新
         return totalStatsDao.update(totalStats);
     }
@@ -77,12 +79,11 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
      * @param gameStatid 某一场比赛的数据id
      * @return 更新结果
      */
-
-    public int setPlayerTotalStats(long totalStatid, long gameStatid){
+    public int setPlayerTotalStatsWithGameStats(long totalStatid, long gameStatid){
         // 1.先根据gameStatid读取到比赛信息
         GameStats gameStats = gameStatsDao.queryById(gameStatid);
         // 2.更新逻辑
-        return setPlayerTotalStats(totalStatid, gameStats);
+        return setPlayerTotalStatsWithGameStats(totalStatid, gameStats);
     }
 
     /**
@@ -91,19 +92,19 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
      * @param gameStats 某一场比赛的数据对象
      * @return 生涯数据对象
      */
-    private TotalStats updateTotalStats(TotalStats totalStats, GameStats gameStats){
+    private TotalStats updateTotalStatsWithGameStats(TotalStats totalStats, GameStats gameStats){
         totalStats.setFga(totalStats.getFga() + gameStats.getFga());
         totalStats.setFgm(totalStats.getFgm() + gameStats.getFgm());
         totalStats.setFg((float)(totalStats.getFgm()/totalStats.getFgm()));
-        totalStats.set_3pa(totalStats.get_3pa() + gameStats.get_3pa());
-        totalStats.set_3pm(totalStats.get_3pm() + gameStats.get_3pm());
-        totalStats.set_3fg((float)(totalStats.get_3pm())/totalStats.get_3pm());
-        totalStats.set_2pa(totalStats.get_2pa() + gameStats.get_2pa());
-        totalStats.set_2pa(totalStats.get_2pa() + gameStats.get_2pa());
-        totalStats.set_2fg((float)(totalStats.get_2pm())/totalStats.get_2pm());
-        totalStats.set_1pa(totalStats.get_1pa() + gameStats.get_1pa());
-        totalStats.set_1pa(totalStats.get_1pa() + gameStats.get_1pa());
-        totalStats.set_1fg((float)(totalStats.get_1pm())/totalStats.get_1pm());
+        totalStats.setPa3(totalStats.getPa3() + gameStats.getPa3());
+        totalStats.setPm3(totalStats.getPm3() + gameStats.getPm3());
+        totalStats.setFg3((float)(totalStats.getPm3())/totalStats.getPa3());
+        totalStats.setPa2(totalStats.getPa2() + gameStats.getPa2());
+        totalStats.setPm2(totalStats.getPm2() + gameStats.getPm2());
+        totalStats.setFg2((float)(totalStats.getPm2())/totalStats.getPa2());
+        totalStats.setPa1(totalStats.getPa1() + gameStats.getPa1());
+        totalStats.setPm1(totalStats.getPm1() + gameStats.getPm1());
+        totalStats.setFg1((float)(totalStats.getPm1())/totalStats.getPa1());
         totalStats.setRebs(totalStats.getRebs() + gameStats.getRebs());
         totalStats.setOrebs(totalStats.getOrebs() + gameStats.getOrebs());
         totalStats.setBlks(totalStats.getBlks() + gameStats.getBlks());
