@@ -48,7 +48,7 @@ CREATE TABLE `gamestats` (
   `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
   `gameid` bigint(10) DEFAULT NULL COMMENT '所属比赛的Id',
   `ismot` char(1) DEFAULT NULL COMMENT '是否为多个加时赛 y/n',
-  `fpa` smallint(6) DEFAULT '0' COMMENT '出手次数',
+  `fga` smallint(6) DEFAULT '0' COMMENT '出手次数',
   `fgm` smallint(6) DEFAULT '0' COMMENT '命中次数',
   `fg` float(4,2) DEFAULT '0.00' COMMENT '命中率',
   `pa3` smallint(6) DEFAULT '0' COMMENT '3分球出手次数',

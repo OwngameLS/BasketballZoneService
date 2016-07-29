@@ -11,7 +11,7 @@ public class GameStats {
     private char ismot;
     private int fga;
     private int fgm;
-    private int fg;
+    private float fg;
     private int pa3;
     private int pm3;
     private float fg3;
@@ -76,11 +76,11 @@ public class GameStats {
         this.fgm = fgm;
     }
 
-    public int getFg() {
+    public float getFg() {
         return fg;
     }
 
-    public void setFg(int fg) {
+    public void setFg(float fg) {
         this.fg = fg;
     }
 

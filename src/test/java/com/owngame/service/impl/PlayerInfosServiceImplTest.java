@@ -49,7 +49,7 @@ public class PlayerInfosServiceImplTest {
     @Test
     public void setPlayerTotalStatsWithGameStats() throws Exception {
         GameStats gameStats = gameStatsDao.queryById(1);
-        gameStats.setBlks(1);
+        gameStats.setBlks(5);
         logger.info("gameStats={}", gameStats);
         playerInfosService.setPlayerTotalStatsWithGameStats(-1,gameStats);
     }

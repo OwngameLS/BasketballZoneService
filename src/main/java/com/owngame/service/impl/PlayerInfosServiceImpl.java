@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016-7-28.
+ * PlayerInfos 暴露给使用者的接口
  */
 @Service
 public class PlayerInfosServiceImpl implements PlayerInfosService{
@@ -43,7 +44,7 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
     /**
      * 获得球员的技术统计信息
      * @param statid 技术统计id
-     * @return
+     * @return 技术统计结果
      */
     public TotalStats getTotalStats(long statid) {
         return totalStatsDao.queryById(statid);
@@ -62,10 +63,12 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
         if(totalStats == null){
             // 第一次创建该生涯数据，先向数据库插入一条记录
             totalStats = new TotalStats();
-            System.out.println("insert new totalStats.");
-            long id = totalStatsDao.insert(totalStats);
-            System.out.println("id:" + id);
-            totalStats.setId(id);
+            // 根据配置，插入后自动生成的主键id会被赋值到这个对象对应的属性上
+            int result = totalStatsDao.insert(totalStats);
+            if(result <=0){
+                return result;
+            }
+//            System.out.println("totalStats.id:" + totalStats.getId());
         }
         totalStats = updateTotalStatsWithGameStats(totalStats, gameStats);
         // 2.对应更新
@@ -95,16 +98,16 @@ public class PlayerInfosServiceImpl implements PlayerInfosService{
     private TotalStats updateTotalStatsWithGameStats(TotalStats totalStats, GameStats gameStats){
         totalStats.setFga(totalStats.getFga() + gameStats.getFga());
         totalStats.setFgm(totalStats.getFgm() + gameStats.getFgm());
-        totalStats.setFg((float)(totalStats.getFgm()/totalStats.getFgm()));
+        totalStats.setFg((float)totalStats.getFgm()*100/totalStats.getFga());
         totalStats.setPa3(totalStats.getPa3() + gameStats.getPa3());
         totalStats.setPm3(totalStats.getPm3() + gameStats.getPm3());
-        totalStats.setFg3((float)(totalStats.getPm3())/totalStats.getPa3());
+        totalStats.setFg3((float)totalStats.getPm3()*100/totalStats.getPa3());
         totalStats.setPa2(totalStats.getPa2() + gameStats.getPa2());
         totalStats.setPm2(totalStats.getPm2() + gameStats.getPm2());
-        totalStats.setFg2((float)(totalStats.getPm2())/totalStats.getPa2());
+        totalStats.setFg2((float)totalStats.getPm2()*100/totalStats.getPa2());
         totalStats.setPa1(totalStats.getPa1() + gameStats.getPa1());
         totalStats.setPm1(totalStats.getPm1() + gameStats.getPm1());
-        totalStats.setFg1((float)(totalStats.getPm1())/totalStats.getPa1());
+        totalStats.setFg1((float)totalStats.getPm1()*100/totalStats.getPa1());
         totalStats.setRebs(totalStats.getRebs() + gameStats.getRebs());
         totalStats.setOrebs(totalStats.getOrebs() + gameStats.getOrebs());
         totalStats.setBlks(totalStats.getBlks() + gameStats.getBlks());

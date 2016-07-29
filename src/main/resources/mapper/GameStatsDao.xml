@@ -9,13 +9,13 @@
     </select>
     <insert id="insert" parameterType="GameStats">
         insert ignore into gamestats
-            (id, gameid,ismot,fga, fgm, fg, pa3, pm3, _3fg, pa2, pm2, _2fg, pa1, pm1, _1fg,
-             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, _1stScore, score2nd,
+            (id, gameid,ismot,fga, fgm, fg, pa3, pm3, fg3, pa2, pm2, fg2, pa1, pm1, fg1,
+             rebs, orebs, blks, fouls, ofouls, stls, asts, tos, score1st, score2nd,
              score3rd, score4th, ot_score, total_score)
         values
-        (#{id}, #{gameid},#{ismot},#{fga},#{fgm},#{fg},#{pa3},#{pm3},#{_3fg},#{pa2},#{pm2},#{_2fg},#{pa1},#{pm1},#{_1fg},
-        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{_1stScore},#{score2nd},
-        #{score3rd},#{score4th},#{ot_score},#{total_score})
+        (#{id}, #{gameid},#{ismot},#{fga},#{fgm},#{fg},#{pa3},#{pm3},#{fg3},#{pa2},#{pm2},#{fg2},#{pa1},#{pm1},#{fg1},
+        #{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{score1st},#{score2nd},
+        #{score3rd},#{score4th},#{scoreOt},#{totalScore})
     </insert>
     <update id="update" parameterType="GameStats">
         update gameinfos set
@@ -26,13 +26,13 @@
         fg=#{fg},
         pa3=#{pa3},
         pm3=#{pm3},
-        _3fg=#{_3fg},
+        fg3=#{fg3},
         pa2=#{pa2},
         pm2=#{pm2},
-        _2fg=#{_2fg},
+        fg2=#{fg2},
         pa1=#{pa1},
         pm1=#{pm1},
-        _1fg=#{_1fg},
+        fg1=#{fg1},
         rebs=#{rebs},
         orebs=#{orebs},
         blks=#{blks},
@@ -41,12 +41,12 @@
         stls=#{stls},
         asts=#{asts},
         tos=#{tos},
-        _1stScore=#{_1stScore},
+        score1st=#{score1st},
         score2nd=#{score2nd},
         score3rd=#{score3rd},
         score4th=#{score4th},
-        ot_score=#{ot_score},
-        total_score=#{total_score}
+        ot_score=#{scoreOt},
+        total_score=#{totalScore}
         where id=#{id}
     </update>
     <delete id="delete" parameterType="int">

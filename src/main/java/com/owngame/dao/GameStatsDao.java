@@ -9,4 +9,5 @@ public interface GameStatsDao {
     GameStats queryById(long id);
     int insert(GameStats gameStats);
     int update(GameStats gameStats);
+    int delete(long id);
 }
