@@ -6,20 +6,22 @@ import com.owngame.service.GameStatsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016/7/29.
  * GameStats
  * 暴露给使用者的接口
  */
+@Service
 public class GameStatsServiceImpl implements GameStatsService{
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private GameStatsDao gameStatsDao;
 
     public GameStats getGameStats(long id) {
-        return gameStatsDao.queryById(id);
+        GameStats gameStats = gameStatsDao.queryById(id);
+        return gameStats;
     }
 
     public long createGameStats(GameStats gameStats) {

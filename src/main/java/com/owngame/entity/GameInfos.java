@@ -107,5 +107,20 @@ public class GameInfos {
         this.playerStatIdsGuest = playerStatIdsGuest;
     }
 
-
+    @Override
+    public String toString() {
+        return "GameInfos{" +
+                "id=" + id +
+                ", countType=" + countType +
+                ", gameType=" + gameType +
+                ", unionId=" + unionId +
+                ", description='" + description + '\'' +
+                ", gametime=" + gametime +
+                ", ismot=" + ismot +
+                ", teamidHome=" + teamidHome +
+                ", teamidGuest=" + teamidGuest +
+                ", playerStatIdsHome='" + playerStatIdsHome + '\'' +
+                ", playerStatIdsGuest='" + playerStatIdsGuest + '\'' +
+                '}';
+    }
 }

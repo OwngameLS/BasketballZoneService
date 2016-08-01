@@ -2,7 +2,6 @@ package com.owngame.service;
 
 import com.owngame.dto.GameInfosFullExposer;
 import com.owngame.entity.GameInfos;
-import com.owngame.entity.GameStats;
 
 /**
  *
@@ -23,6 +22,4 @@ public interface GameInfosService {
      * @return 全部信息对象
      */
     GameInfosFullExposer getGameInofsFull(long id);
-
-
 }

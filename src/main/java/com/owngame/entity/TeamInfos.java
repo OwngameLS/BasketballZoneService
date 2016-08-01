@@ -79,4 +79,18 @@ public class TeamInfos {
     public void setIconimg(String iconimg) {
         this.iconimg = iconimg;
     }
+
+    @Override
+    public String toString() {
+        return "TeamInfos{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", prides='" + prides + '\'' +
+                ", gamecount=" + gamecount +
+                ", wincount=" + wincount +
+                ", statid=" + statid +
+                ", iconimg='" + iconimg + '\'' +
+                '}';
+    }
 }

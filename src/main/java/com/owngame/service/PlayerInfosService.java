@@ -3,12 +3,14 @@ package com.owngame.service;
 import com.owngame.dto.PlayerInfosFullExposer;
 import com.owngame.entity.GameStats;
 import com.owngame.entity.TotalStats;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016-7-28.
  *
  * 球员信息操作服务类
  */
+@Service
 public interface PlayerInfosService {
     /**
      * 查询某一个球员的所有信息

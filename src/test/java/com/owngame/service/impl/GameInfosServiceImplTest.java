@@ -1,6 +1,7 @@
 package com.owngame.service.impl;
 
 import com.owngame.dao.GameInfosDao;
+import com.owngame.dto.GameInfosFullExposer;
 import com.owngame.entity.GameInfos;
 import com.owngame.service.GameInfosService;
 import org.junit.Test;
@@ -21,8 +22,6 @@ import javax.annotation.Resource;
         "classpath:spring/spring-dao.xml",
         "classpath:spring/spring-service.xml"})
 public class GameInfosServiceImplTest {
-
-
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     GameInfosDao gameInfosDao;
@@ -31,13 +30,14 @@ public class GameInfosServiceImplTest {
 
     @Test
     public void getGameInfos() throws Exception {
-        GameInfos gameInfos = gameInfosService.getGameInfos(2);
+        GameInfos gameInfos = gameInfosService.getGameInfos(1);
         logger.info("gameInfos={}", gameInfos);
     }
 
     @Test
     public void getGameInofsFull() throws Exception {
-
+        GameInfosFullExposer gameInfosFullExposer = gameInfosService.getGameInofsFull(1);
+        logger.info("gameInfosFullExposer={}", gameInfosFullExposer);
     }
 
 }

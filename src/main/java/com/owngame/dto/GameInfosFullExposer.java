@@ -42,8 +42,8 @@ public class GameInfosFullExposer {
     public String toString() {
         return "GameInfosFullExposer{" +
                 "gameInfos=" + gameInfos.toString() +
-                ", homeTeamStats=" + homeTeamStats +
-                ", guestTeamStats=" + guestTeamStats +
+                ", homeTeamStats=" + homeTeamStats.toString() +
+                ", guestTeamStats=" + guestTeamStats.toString() +
                 '}';
     }
 }
