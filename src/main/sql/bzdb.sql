@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-07-29 09:45:46
+Date: 2016-08-01 16:21:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,11 +34,12 @@ CREATE TABLE `gameinfos` (
   `player_statids_home` text COMMENT '主队球员该场比赛数据统计条目Ids',
   `player_statIds_guest` text COMMENT '客队球员该场比赛数据统计条目Ids',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gameinfos
 -- ----------------------------
+INSERT INTO `gameinfos` VALUES ('1', 'T', 'F', '-1', 'no', '2016-08-01 00:00:00', 'N', '1', '2', '2', '3', '4,5,6', '7,8,9');
 
 -- ----------------------------
 -- Table structure for `gamestats`
@@ -50,16 +51,16 @@ CREATE TABLE `gamestats` (
   `ismot` char(1) DEFAULT NULL COMMENT '是否为多个加时赛 y/n',
   `fga` smallint(6) DEFAULT '0' COMMENT '出手次数',
   `fgm` smallint(6) DEFAULT '0' COMMENT '命中次数',
-  `fg` float(4,2) DEFAULT '0.00' COMMENT '命中率',
+  `fg` float(5,2) DEFAULT '0.00' COMMENT '命中率',
   `pa3` smallint(6) DEFAULT '0' COMMENT '3分球出手次数',
   `pm3` smallint(6) DEFAULT '0' COMMENT '3分球命中次数',
-  `fg3` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
+  `fg3` float(5,2) DEFAULT '0.00' COMMENT '3分球命中率',
   `pa2` smallint(6) DEFAULT '0' COMMENT '2分球出手次数',
   `pm2` smallint(6) DEFAULT '0' COMMENT '2分球命中次数',
-  `fg2` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
+  `fg2` float(5,2) DEFAULT '0.00' COMMENT '2分球命中率',
   `pa1` smallint(6) DEFAULT '0' COMMENT '1分球出手次数',
   `pm1` smallint(6) DEFAULT '0' COMMENT '1分球命中次数',
-  `fg1` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
+  `fg1` float(5,2) DEFAULT '0.00' COMMENT '1分球命中率',
   `rebs` smallint(6) DEFAULT '0' COMMENT '篮板球',
   `orebs` smallint(6) DEFAULT '0' COMMENT '进攻篮板',
   `blks` smallint(6) DEFAULT '0' COMMENT '盖帽',
@@ -75,12 +76,20 @@ CREATE TABLE `gamestats` (
   `score_ot` smallint(6) DEFAULT '0' COMMENT '加时赛得分',
   `total_score` smallint(6) DEFAULT '0' COMMENT '总得分',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gamestats
 -- ----------------------------
 INSERT INTO `gamestats` VALUES ('1', '1', 'N', '15', '10', '66.67', '5', '2', '40.00', '5', '4', '80.00', '5', '4', '80.00', '5', '1', '3', '4', '1', '1', '5', '0', '5', '5', '4', '4', '0', '18');
+INSERT INTO `gamestats` VALUES ('2', '1', 'N', '8', '6', '75.00', '3', '2', '66.66', '3', '3', '100.00', '2', '1', '50.00', '0', '0', '0', '0', '0', '0', '0', '0', '13', '0', '0', '0', '0', '13');
+INSERT INTO `gamestats` VALUES ('3', '1', 'N', '9', '7', '77.78', '2', '2', '100.00', '3', '2', '66.66', '4', '3', '75.00', '0', '0', '0', '0', '0', '0', '0', '0', '13', '0', '0', '0', '0', '13');
+INSERT INTO `gamestats` VALUES ('4', '1', 'N', '3', '2', '66.66', '1', '0', '0.00', '1', '1', '100.00', '0', '0', '0.00', '0', '0', '0', '0', '0', '0', '0', '0', '2', '0', '0', '0', '0', '2');
+INSERT INTO `gamestats` VALUES ('5', '1', 'N', '2', '1', '50.00', '1', '1', '100.00', '1', '1', '100.00', '2', '1', '50.00', '0', '0', '0', '0', '0', '0', '0', '0', '6', '0', '0', '0', '0', '6');
+INSERT INTO `gamestats` VALUES ('6', '1', 'N', '3', '3', '100.00', '1', '1', '100.00', '1', '1', '100.00', '0', '0', '0.00', '0', '0', '0', '0', '0', '0', '0', '0', '5', '0', '0', '0', '0', '5');
+INSERT INTO `gamestats` VALUES ('7', '1', 'N', '3', '2', '66.66', '1', '1', '100.00', '1', '1', '100.00', '2', '1', '50.00', '0', '0', '0', '0', '0', '0', '0', '0', '6', '0', '0', '0', '0', '6');
+INSERT INTO `gamestats` VALUES ('8', '1', 'N', '3', '2', '66.66', '0', '0', '0.00', '1', '1', '100.00', '1', '1', '100.00', '0', '0', '0', '0', '0', '0', '0', '0', '3', '0', '0', '0', '0', '3');
+INSERT INTO `gamestats` VALUES ('9', '1', 'N', '3', '3', '100.00', '1', '1', '100.00', '1', '0', '0.00', '1', '1', '100.00', '0', '0', '0', '0', '0', '0', '0', '0', '4', '0', '0', '0', '0', '4');
 
 -- ----------------------------
 -- Table structure for `playerinfos`
@@ -142,16 +151,16 @@ CREATE TABLE `totalstats` (
   `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
   `fga` bigint(11) DEFAULT '0' COMMENT '总出手次数',
   `fgm` bigint(11) DEFAULT '0' COMMENT '总命中次数',
-  `fg` float(4,2) DEFAULT '0.00' COMMENT '总命中率',
+  `fg` float(5,2) DEFAULT '0.00' COMMENT '总命中率',
   `pa3` bigint(11) DEFAULT '0' COMMENT '总3分球出手次数',
   `pm3` bigint(11) DEFAULT '0' COMMENT '总3分球命中次数',
-  `fg3` float(4,2) DEFAULT '0.00' COMMENT '3分球命中率',
+  `fg3` float(5,2) DEFAULT '0.00' COMMENT '3分球命中率',
   `pa2` bigint(11) DEFAULT '0' COMMENT '总2分球出手次数',
   `pm2` bigint(11) DEFAULT '0' COMMENT '总2分球命中次数',
-  `fg2` float(4,2) DEFAULT '0.00' COMMENT '2分球命中率',
+  `fg2` float(5,2) DEFAULT '0.00' COMMENT '2分球命中率',
   `pa1` bigint(11) DEFAULT '0' COMMENT '总1分球出手次数',
   `pm1` bigint(11) DEFAULT '0' COMMENT '总1分球命中次数',
-  `fg1` float(4,2) DEFAULT '0.00' COMMENT '1分球命中率',
+  `fg1` float(5,2) DEFAULT '0.00' COMMENT '1分球命中率',
   `rebs` bigint(20) DEFAULT '0' COMMENT '篮板球',
   `orebs` bigint(20) DEFAULT '0' COMMENT '进攻篮板',
   `blks` bigint(20) DEFAULT '0' COMMENT '盖帽',
