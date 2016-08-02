@@ -24,16 +24,25 @@ public class PlayerInfosController {
     @Autowired
     PlayerInfosService playerInfosService;
 
+    /**
+     * 获取球员信息
+     * 用来处理网络调用
+     *
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/{id}/detail", method = RequestMethod.GET,
-                    produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
+                    produces = {"application/json;charset=UTF-8"})// 声明如何匹配网络请求和返回数据
+    @ResponseBody// 告知返回的是json数据
     public String detail(@PathVariable("id") Long id, Model model){
         if(id == null){
             return "redirect";
         }
         PlayerInfosFullExposer playerInfosFullExposer =  playerInfosService.getPlayerInfosFullById(id);
         model.addAttribute("playerInfos", playerInfosFullExposer);
-        return "detail";
+        // 在返回数据中读取model里的数据 model
+        return "detail";//view
     }
 
 }

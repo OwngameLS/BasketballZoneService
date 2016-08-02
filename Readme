@@ -1,4 +1,4 @@
-篮球空间网页端和服务端 160801 21:56
+篮球空间网页端和服务端 160802 17:56
 项目采用springMVC + spring + myBatis
 
 老师的项目共享：
@@ -12,3 +12,4 @@ https://github.com/geekyijun/seckill
     Service：暴露给用户的接口，用户不能直接使用Dao的类，所有的操作都由Service提供。
     Service接口定义各种操作，ServiceImpl编写实际操作，操作中使用Dao的类，但是可以返回Dao对应的entity。
     ServiceImpl类使用Spring的@Service注解暴露给使用者。
+5、准备进行网页访问的开发。无奈办公室电脑的内存配置太低了。
