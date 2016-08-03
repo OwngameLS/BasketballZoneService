@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BasketballZoneService:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="BasketballZoneService.war">
-      <element id="artifact" artifact-name="BasketballZoneService:war exploded" />
-    </root>
-  </artifact>
-</component>

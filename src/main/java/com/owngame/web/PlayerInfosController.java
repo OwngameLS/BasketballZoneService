@@ -34,13 +34,15 @@ public class PlayerInfosController {
      */
     @RequestMapping(value="/{id}/detail", method = RequestMethod.GET,
                     produces = {"application/json;charset=UTF-8"})// 声明如何匹配网络请求和返回数据
-    @ResponseBody// 告知返回的是json数据
-    public String detail(@PathVariable("id") Long id, Model model){
-        if(id == null){
+//    @ResponseBody// 告知返回的是json数据
+    public String detail(@PathVariable("id") long id, Model model){
+        System.out.println("id:"+id);
+        if(id == 0){
             return "redirect";
         }
         PlayerInfosFullExposer playerInfosFullExposer =  playerInfosService.getPlayerInfosFullById(id);
-        model.addAttribute("playerInfos", playerInfosFullExposer);
+        model.addAttribute("playerInfosFullExposer", playerInfosFullExposer);
+        logger.info("at:::::model={}", model);
         // 在返回数据中读取model里的数据 model
         return "detail";//view
     }
