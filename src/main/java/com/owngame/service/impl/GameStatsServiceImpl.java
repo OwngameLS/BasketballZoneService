@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * 暴露给使用者的接口
  */
 @Service
-public class GameStatsServiceImpl implements GameStatsService{
+public class GameStatsServiceImpl implements GameStatsService {
 
     @Autowired
     private GameStatsDao gameStatsDao;

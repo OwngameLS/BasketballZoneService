@@ -9,6 +9,7 @@ import com.owngame.entity.GameStats;
 public interface GameStatsService {
     /**
      * 获得比赛数据统计
+     *
      * @param id 数据统计id
      * @return 数据统计对象
      */
@@ -16,6 +17,7 @@ public interface GameStatsService {
 
     /**
      * 新增一条比赛数据统计
+     *
      * @param gameStats 数据统计对象
      * @return 插入成功后返回该条记录的id
      */
@@ -23,6 +25,7 @@ public interface GameStatsService {
 
     /**
      * 更新某条比赛数据统计记录
+     *
      * @param gameStats 数据统计对象
      * @return 是否成功
      */
@@ -30,6 +33,7 @@ public interface GameStatsService {
 
     /**
      * 删除某条比赛记录
+     *
      * @param id 数据统计的id
      * @return 是否成功
      */

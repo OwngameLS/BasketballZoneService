@@ -23,8 +23,8 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
-    "classpath:spring/spring-dao.xml",
-    "classpath:spring/spring-service.xml"})
+        "classpath:spring/spring-dao.xml",
+        "classpath:spring/spring-service.xml"})
 public class PlayerInfosServiceImplTest {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
@@ -51,7 +51,7 @@ public class PlayerInfosServiceImplTest {
         GameStats gameStats = gameStatsDao.queryById(1);
         gameStats.setBlks(5);
         logger.info("gameStats={}", gameStats);
-        playerInfosService.setPlayerTotalStatsWithGameStats(-1,gameStats);
+        playerInfosService.setPlayerTotalStatsWithGameStats(-1, gameStats);
     }
 
     @Test

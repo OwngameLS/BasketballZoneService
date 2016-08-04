@@ -8,6 +8,7 @@ import com.owngame.entity.GameInfos;
 public interface GameInfosDao {
     /**
      * 通过比赛Id号查询比赛信息
+     *
      * @param id
      * @return
      */
@@ -15,6 +16,7 @@ public interface GameInfosDao {
 
     /**
      * 插入比赛信息
+     *
      * @param gameInfos
      * @return
      */

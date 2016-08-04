@@ -8,7 +8,10 @@ import com.owngame.entity.TotalStats;
  */
 public interface TotalStatsDao {
     TotalStats queryById(long id);
+
     int insert(TotalStats totalStats);
+
     int update(TotalStats totalStats);
+
     int delete(long id);
 }

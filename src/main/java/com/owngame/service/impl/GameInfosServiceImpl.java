@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Administrator on 2016/7/31.
  */
 @Service
-public class GameInfosServiceImpl implements GameInfosService{
+public class GameInfosServiceImpl implements GameInfosService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
@@ -38,7 +38,7 @@ public class GameInfosServiceImpl implements GameInfosService{
     }
 
     // 初始化技术统计信息已实现完整的比赛信息
-    private GameInfosFullExposer initGameStatsOfGameInfos(GameInfos gameInfos){
+    private GameInfosFullExposer initGameStatsOfGameInfos(GameInfos gameInfos) {
         GameInfosFullExposer gameInfosFullExposer = new GameInfosFullExposer();
         gameInfosFullExposer.setGameInfos(gameInfos);
         String ids = gameInfos.getTeamidHome() + "," + gameInfos.getPlayerStatIdsHome();
@@ -48,12 +48,12 @@ public class GameInfosServiceImpl implements GameInfosService{
         return gameInfosFullExposer;
     }
 
-    private List queryStats(String idsString){
+    private List queryStats(String idsString) {
         ArrayList<GameStats> gameStatses = new ArrayList<GameStats>();
         // 将数组字符串转换成long数组
         long[] ids = parseLongString(idsString);
-        for(int i=0;i<ids.length;i++){
-            if(ids[i] != 0) {//得到合理的id才去查询
+        for (int i = 0; i < ids.length; i++) {
+            if (ids[i] != 0) {//得到合理的id才去查询
                 gameStatses.add(gameStatsDao.queryById(ids[i]));
             }
         }
@@ -61,15 +61,15 @@ public class GameInfosServiceImpl implements GameInfosService{
     }
 
     // 将long型的字符串数组改成long型数组
-    private long[] parseLongString(String longStr){
+    private long[] parseLongString(String longStr) {
         String[] str = longStr.split(",");
         int length = str.length;
         long[] ids = new long[length];
-        for(int i=0;i<length;i++){
+        for (int i = 0; i < length; i++) {
             long temp = -1;
             try {
                 temp = Long.parseLong(str[i]);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 continue;
             }
             ids[i] = temp;

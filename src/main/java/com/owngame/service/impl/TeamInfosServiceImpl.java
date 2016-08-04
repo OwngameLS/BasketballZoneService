@@ -26,7 +26,7 @@ public class TeamInfosServiceImpl implements TeamInfosService {
         return teamInfosDao.queryById(id);
     }
 
-    public TeamInfosFullExposer queryFullById(long id){
+    public TeamInfosFullExposer queryFullById(long id) {
         TeamInfosFullExposer teamInfosFullExposer = new TeamInfosFullExposer();
         teamInfosFullExposer.setTeamInfos(teamInfosDao.queryById(id));
         teamInfosFullExposer.setTotalStats(totalStatsDao.queryById(teamInfosFullExposer.getTeamInfos().getStatid()));

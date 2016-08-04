@@ -10,12 +10,12 @@ public class WebResult<T> {
     private T data;
     private String error;
 
-    public WebResult(boolean success, T data){
+    public WebResult(boolean success, T data) {
         this.success = success;
         this.data = data;
     }
 
-    public WebResult(boolean success, String error){
+    public WebResult(boolean success, String error) {
         this.success = success;
         this.error = error;
     }

@@ -9,7 +9,8 @@
     </select>
     <insert id="insert" parameterType="TotalStats" keyProperty="id">
         insert ignore into totalstats
-        (id, fga, fgm, fg, pa3, pm3, fg3, pa2, pm2, fg2, pa1, pm1, fg1, rebs, orebs, blks, fouls, ofouls, stls, asts, tos, total_score)
+        (id, fga, fgm, fg, pa3, pm3, fg3, pa2, pm2, fg2, pa1, pm1, fg1, rebs, orebs, blks, fouls, ofouls, stls, asts,
+        tos, total_score)
         values
         (#{id},#{fga},#{fgm},#{fg},#{pa3},#{pm3},#{fg3},#{pa2},#{pm2},#{fg2},#{pa1},#{pm1},#{fg1},#{rebs},#{orebs},#{blks},#{fouls},#{ofouls},#{stls},#{asts},#{tos},#{totalScore})
     </insert>

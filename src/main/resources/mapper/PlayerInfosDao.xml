@@ -11,30 +11,30 @@
         insert ignore into playerinfos
         (id, curTeamid,historyTeams,age,birthday,resume,name,
         sex,jersyno,height,weight,armspan,position,games,mvp,prides,statid,iconimg,grade)
-         values
-         (#{id}, #{curTeamid},#{historyTeams},#{age},#{birthday},#{resume},#{name},
+        values
+        (#{id}, #{curTeamid},#{historyTeams},#{age},#{birthday},#{resume},#{name},
         #{sex},#{jersyno},#{height},#{weight},#{armspan},#{position},#{games},#{mvp},#{prides},#{statid},#{iconimg},#{grade})
     </insert>
     <update id="update" parameterType="PlayerInfos">
         update playerinfos set
-            curTeamid=#{curTeamid},
-            historyTeams=#{historyTeams},
-            age=#{age},
-            birthday=#{birthday},
-            resume=#{resume},
-            name=#{name},
-            sex=#{sex},
-            jersyno=#{jersyno},
-            height=#{height},
-            weight=#{weight},
-            armspan=#{armspan},
-            position=#{position},
-            games=#{games},
-            mvp=#{mvp},
-            prides=#{prides},
-            statid=#{statid},
-            iconimg=#{iconimg},
-            grade=#{grade}
+        curTeamid=#{curTeamid},
+        historyTeams=#{historyTeams},
+        age=#{age},
+        birthday=#{birthday},
+        resume=#{resume},
+        name=#{name},
+        sex=#{sex},
+        jersyno=#{jersyno},
+        height=#{height},
+        weight=#{weight},
+        armspan=#{armspan},
+        position=#{position},
+        games=#{games},
+        mvp=#{mvp},
+        prides=#{prides},
+        statid=#{statid},
+        iconimg=#{iconimg},
+        grade=#{grade}
         where id=#{id}
     </update>
     <delete id="delete" parameterType="int">

@@ -7,7 +7,10 @@ import com.owngame.entity.TeamInfos;
  */
 public interface TeamInfosDao {
     TeamInfos queryById(long id);
+
     int insert(TeamInfos teamInfos);
+
     int update(TeamInfos teamInfos);
+
     int delete(long id);
 }

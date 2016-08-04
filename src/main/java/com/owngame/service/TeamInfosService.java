@@ -9,8 +9,12 @@ import com.owngame.entity.TeamInfos;
  */
 public interface TeamInfosService {
     TeamInfos queryById(long id);
+
     TeamInfosFullExposer queryFullById(long id);
+
     int insert(TeamInfos teamInfos);
+
     int update(TeamInfos teamInfos);
+
     int delete(long id);
 }
