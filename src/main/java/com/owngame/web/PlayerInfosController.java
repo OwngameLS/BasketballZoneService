@@ -2,16 +2,16 @@ package com.owngame.web;
 
 import com.owngame.dto.PlayerInfosFullExposer;
 import com.owngame.service.PlayerInfosService;
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+
 
 /**
  * Created by Administrator on 2016-8-2.
@@ -63,5 +63,42 @@ public class PlayerInfosController {
          */
     }
 
+
+    /**
+     * 返回json数据格式的方法
+     * 因为开启了相应的配置，所以只要用上特定的@ResponseBody，它就能把返回的对象做成Json对象返回了。
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/{id}/test", method = RequestMethod.GET)
+    @ResponseBody
+    public PlayerInfosFullExposer test(@PathVariable("id") long id, Model model) {
+        PlayerInfosFullExposer playerInfosFullExposer = playerInfosService.getPlayerInfosFullById(id);
+        model.addAttribute("playerInfosFullExposer", playerInfosFullExposer);
+        logger.info("at:::::model={}", model);
+        // 在返回数据中读取model里的数据 model
+        return playerInfosFullExposer;
+    }
+
+    @RequestMapping(value = "jsontype/{id}", method = RequestMethod.GET)
+    public ResponseEntity<PlayerInfosFullExposer> test2(@PathVariable("id") long id) {
+        PlayerInfosFullExposer playerInfosFullExposer = playerInfosService.getPlayerInfosFullById(id);
+        return new ResponseEntity<PlayerInfosFullExposer>(playerInfosFullExposer, HttpStatus.OK);
+    }
+
+    /**
+     * 接受网络请求 并拿去到请求中的json数据
+     * @param playerInfosFullExposer
+     * @return
+     */
+    @RequestMapping(value = "/test3", method = RequestMethod.POST)
+    public ResponseEntity<PlayerInfosFullExposer> test3(@RequestBody PlayerInfosFullExposer playerInfosFullExposer) {
+        System.out.println("I was shooted...." + playerInfosFullExposer);
+//        PlayerInfosFullExposer playerInfosFullExposer = playerInfosService.getPlayerInfosFullById(1);
+        playerInfosFullExposer.getPlayerBasicInfos().setName("我是你哥！");
+        logger.info("at:::::playerInfosFullExposer={}", playerInfosFullExposer);
+        return new ResponseEntity<PlayerInfosFullExposer>(playerInfosFullExposer, HttpStatus.OK);
+    }
 
 }
