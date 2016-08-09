@@ -89,13 +89,13 @@ public class PlayerInfosController {
 
     /**
      * 接受网络请求 并拿去到请求中的json数据
-     * @param playerInfosFullExposer
+     * @param object
      * @return
      */
     @RequestMapping(value = "/test3", method = RequestMethod.POST)
-    public ResponseEntity<PlayerInfosFullExposer> test3(@RequestBody PlayerInfosFullExposer playerInfosFullExposer) {
-        System.out.println("I was shooted...." + playerInfosFullExposer);
-//        PlayerInfosFullExposer playerInfosFullExposer = playerInfosService.getPlayerInfosFullById(1);
+    public ResponseEntity<PlayerInfosFullExposer> test3(@RequestBody Object object) {
+        System.out.println("I was shooted...." + object);
+        PlayerInfosFullExposer playerInfosFullExposer =  (PlayerInfosFullExposer)object;
         playerInfosFullExposer.getPlayerBasicInfos().setName("我是你哥！");
         logger.info("at:::::playerInfosFullExposer={}", playerInfosFullExposer);
         return new ResponseEntity<PlayerInfosFullExposer>(playerInfosFullExposer, HttpStatus.OK);
